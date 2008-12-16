@@ -6,13 +6,13 @@ Gem::Specification.new do |s|
   s.date = "2008-12-15"
   s.email = "apptower@wintoni.us"
   s.executables = ["superjail"]
-  s.extra_rdoc_files = ["README.markdown", "changelog.markdown", "LICENSE"]
+  s.extra_rdoc_files = ["README.markdown", "changelog.markdown", "MIT-LICENSE"]
   s.has_rdoc = true
   s.homepage = "http://www.github.com/AppTower/superjail"
   s.require_paths = ["lib"]
   
-  s.description = "A ruby implementation of jailkit"
-  s.summary     = "A ruby implementation of jailkit"
+  s.description = "A ruby interface to jailkit"
+  s.summary     = "A ruby interface to jailkit"
 
   # = MANIFEST =
   s.files = %w[
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     bin/superjail
     changelog.markdown
     lib/superjail.rb
+    lib/superjail/install.rb
     superjail.gemspec
   ]
   # = MANIFEST =

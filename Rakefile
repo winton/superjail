@@ -21,3 +21,11 @@ file 'superjail.gemspec' => FileList['{bin,lib}/**','Rakefile'] do |f|
   File.open(f.name, 'w') { |io| io.write(spec) }
   puts "Updated #{f.name}"
 end
+
+# sudo rake install
+task :install do
+  `gem uninstall superjail -q`
+  `gem build superjail.gemspec -q`
+  `gem install superjail*.gem -q`
+  `rm superjail*.gem`
+end
