@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
     bin/superjail
     changelog.markdown
     lib/superjail.rb
-    lib/superjail/install.rb
     superjail.gemspec
   ]
   # = MANIFEST =

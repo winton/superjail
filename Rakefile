@@ -24,8 +24,8 @@ end
 
 # sudo rake install
 task :install do
-  `gem uninstall superjail -q`
-  `gem build superjail.gemspec -q`
-  `gem install superjail*.gem -q`
-  `rm superjail*.gem`
+  puts `gem uninstall superjail -q`
+  puts `gem build superjail.gemspec -q`
+  puts `gem install superjail*.gem -q`
+  puts `rm superjail*.gem`
 end

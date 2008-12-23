@@ -2,12 +2,12 @@
 
 require 'rubygems'
 require 'superjail'
-include  Superjail::Install
+include  Superjail
 
 case ARGV.shift
 when 'install'
   case ARGV.shift
   when 'jailkit'
-    jailkit
+    Jailkit.install
   end
 end
