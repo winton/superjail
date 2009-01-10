@@ -1,0 +1,3 @@
+[<%= config[:name] %>]
+<% if config[:executables] %>executables = <%= config[:executables].join(', ') %><% end %>
+<% if config[:paths]       %>paths = <%=       config[:paths].join(', ')       %><% end %>

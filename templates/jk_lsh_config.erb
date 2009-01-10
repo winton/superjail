@@ -1,0 +1,4 @@
+[group <%= config[:group] %>]
+<% if config[:executables] %>executables = <%= config[:executables].join(', ') %><% end %>
+<% if config[:paths]       %>paths = <%=       config[:paths].join(', ')       %><% end %>
+allow_word_expansion = 0

@@ -10,4 +10,18 @@ when 'install'
   when 'jailkit'
     Jailkit.install
   end
+when 'test'
+  puts Jail.create('/test',
+    :sections => [{
+      :name => :ruby,
+      :paths => [ '/usr/local/lib/ruby' ],
+      :executables => [ '/usr/local/bin/ruby', '/usr/local/bin/gem' ]
+    }],
+    :shell => {
+     :group => 'free',
+     :paths => [ '/usr/local/bin', '/usr/bin' ],
+     :executables => [ '/usr/local/bin/ruby' ],
+     :allow_word_expansion => 0
+    }
+  )
 end
