@@ -61,7 +61,7 @@ module Superjail
           :temp_config => '/tmp/jk_init.ini',
           :verbose     => true
         }.merge(options)
-        # Create temp_config from config
+        # Copy config to temp_config
         FileUtils.cp options[:config], options[:temp_config]
         # If custom shell
         if options[:shell]

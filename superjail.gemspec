@@ -23,6 +23,9 @@ Gem::Specification.new do |s|
     changelog.markdown
     lib/superjail.rb
     superjail.gemspec
+    templates/custom_section.erb
+    templates/jk_lsh_config.erb
+    templates/jk_lsh_section.erb
   ]
   # = MANIFEST =
 end
