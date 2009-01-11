@@ -11,7 +11,7 @@ when 'install'
     Jailkit.install
   end
 when 'test'
-  puts Jail.create('/test',
+  Jail.create('/jail',
     :sections => [{
       :name => :ruby,
       :paths => [ '/usr/local/lib/ruby' ],
@@ -20,8 +20,9 @@ when 'test'
     :shell => {
      :group => 'free',
      :paths => [ '/usr/local/bin', '/usr/bin' ],
-     :executables => [ '/usr/local/bin/ruby' ],
-     :allow_word_expansion => 0
+     :executables => [ '/usr/local/bin/ruby' ]
     }
   )
+  Jail::User.create('/jail', 'free', 'user', 'password')
+  Jail::User.execute_as_jailed_user('ls', '/jail', 'free', 'user', 'password')
 end
