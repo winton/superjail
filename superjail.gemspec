@@ -22,10 +22,10 @@ Gem::Specification.new do |s|
     bin/superjail
     changelog.markdown
     lib/superjail.rb
+    superjail-0.1.0.gem
     superjail.gemspec
     templates/custom_section.erb
     templates/jk_lsh_config.erb
-    templates/jk_lsh_section.erb
   ]
   # = MANIFEST =
 end

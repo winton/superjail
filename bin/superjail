@@ -11,18 +11,24 @@ when 'install'
     Jailkit.install
   end
 when 'test'
-  Jail.create('/jail',
-    :sections => [{
-      :name => :ruby,
-      :paths => [ '/usr/local/lib/ruby' ],
-      :executables => [ '/usr/local/bin/ruby', '/usr/local/bin/gem' ]
-    }],
-    :shell => {
-     :group => 'free',
-     :paths => [ '/usr/local/bin', '/usr/bin' ],
-     :executables => [ '/usr/local/bin/ruby' ]
-    }
-  )
-  Jail::User.create('/jail', 'free', 'user', 'password')
-  Jail::User.execute_as_jailed_user('ls', '/jail', 'free', 'user', 'password')
+  case ARGV.shift
+  when 'reset'
+    Jail::User.destroy '/jail', 'testuser'
+    Jail.destroy '/jail'
+  else
+    Jail.create('/jail',
+      :sections => [{
+        :name => :ruby,
+        :paths => [ '/usr/local/lib/ruby' ],
+        :executables => [ '/usr/local/bin/ruby', '/usr/local/bin/gem' ]
+      }],
+      :shell => {
+       :group => 'free',
+       :paths => [ '/usr/sbin', '/usr/local/bin', '/etc/jailkit', '/lib', '/lib64', '/etc' ],
+       :executables => [ '/usr/sbin/jk_lsh', '/usr/local/bin/ruby' ]
+      }
+    )
+    Jail::User.create('/jail', 'free', 'testuser', 'password')
+    Jail::User.execute_as_jailed_user('ls', '/jail', 'free', 'testuser', 'password')
+  end
 end
